@@ -1,11 +1,12 @@
-import './App.css'
+import { Box } from '@chakra-ui/react'
+
 
 function App() {
 
   return (
-    <div>
-      <p>HelloWorld</p>
-    </div>
+    <Box h={'100vh'} bg={'#FAFAFA'}>
+
+    </Box>
   )
 }
 

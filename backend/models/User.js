@@ -47,10 +47,10 @@ const userSchema = new mongoose.Schema({
         filename: {type: String, required: true, default: 'default.jpg'},
         type: {type: String, required: true, default: 'image/jpg'},
     },
-    admin: {
-        type: Boolean,
-        immutable: true,
-        default: false
+    role: {
+        type: String,
+        enum: ["admin", "user"],
+        default: "user"
     },
 },{
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
@@ -73,7 +73,6 @@ userSchema.pre('save', function(next){
             return next(Error("Les mots de passe ne correspondent pas !"))
         }
         user.password = bcrypt.hashSync(user.password, salt);
-        
     }
     next();
 })

@@ -14,7 +14,7 @@ async function create(req, res){
 }
 async function login(req, res){
     try {
-        const { email, password } = req.body;
+        const { email, password } = req.body.form;
         const authToken = await AuthActions.execute(email, password);
         if(!authToken) throw new Error("Tentative de connection échouée. Veuillez rééssayer")
 
@@ -33,7 +33,7 @@ async function login(req, res){
 
 function logout(req, res){
     const authToken = req.cookies.auth_token;
-    console.log(req.cookies)
+    // console.log(req.cookies)
     if(authToken){
        res
         .status(200)

@@ -9,9 +9,6 @@ router.get('/profile', auth, (req, res)=> {
         user: req.user
     })
 })
-router.get('/login', (req, res)=> {
-    res.send("echouer")
-})
 
 //------------- Login/Register -----------
 //router.post('/login')

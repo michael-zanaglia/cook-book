@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router';
-import Provider from "@/components/ui/provider"
-import Login from "@/pages/Login.tsx";
+import Login from "@/pages/Auth/Login";
+import Register from '@/pages/Auth/Register';
 import Profile from "@/pages/Profile.tsx";
 import Dashboard from '@/pages/Dashboard.tsx';
 import ProtectedRoutes from '@/utils/ProtectedRoutes';
+import NotAuthRoutes from '@/utils/NotAuthRoutes';
 
 
 function App() {
@@ -11,18 +12,20 @@ function App() {
   return (
     <Router>
     
-    <Provider>
-      
       <Routes>
-        <Route path='/login' element={<Login/>} />
+      
+        <Route element={<NotAuthRoutes />}>
+          <Route path='/login' element={<Login/>} />
+          <Route path='/register' element={<Register/>} />
+        </Route>
         
         <Route element={<ProtectedRoutes />}>
           <Route path='/profile' element={<Profile/>} />
         </Route>
         <Route index path='/' element={<Dashboard/>} />
+      
       </Routes>
 
-    </Provider>
 
   </Router>
   )

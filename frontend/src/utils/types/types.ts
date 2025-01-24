@@ -1,3 +1,15 @@
+export interface AxiosError{
+    response?: {
+        data?: {
+            message?: string | undefined;
+        }
+    }
+}
+export interface Form {
+    email: string;
+    password: string;
+}
+
 interface Image {
     path: string;
     filename: string;

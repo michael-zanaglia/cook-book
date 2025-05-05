@@ -1,13 +1,7 @@
 import { create } from "zustand";
 // import { persist } from "zustand/middleware"
 import user from '@/api/user';
-import { User } from "@/utils/types/types"
-
-interface isAuthStore {
-    isAuth: User | null,
-    setIsAuth: (data: User) => void
-    checkAuth: () => Promise<void>
-}
+import { isAuthStore } from "../types/types";
 
 export const useIsAuthStore = create<isAuthStore>()(
 
@@ -17,10 +11,10 @@ export const useIsAuthStore = create<isAuthStore>()(
             checkAuth: async() => {
                 try {
                     const response = await user.get("/auth",{ withCredentials: true})
-                    set({ isAuth: response?.data?.user })
                     console.log("z", response?.data?.user)
-                } catch(e){
-                    console.log("zustand", e)
+                    set({ isAuth: response?.data?.user })
+                } catch(e: any){
+                    console.log("zustand", e?.response?.data?.message)
                     set({ isAuth: null })
                 }
             }

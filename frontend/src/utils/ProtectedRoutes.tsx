@@ -9,17 +9,16 @@ const ProtectedRoutes = () => {
         async function check(){
             await checkAuth()
             setIsLoad(false)
-            console.log(isAuth, "dans la func")
         }
         check()
         console.log(isAuth)
     }, [])
 
     if(isLoad){
-        return <div>CHargment...</div>
+        return <div>Chargement...</div>
     }
     return (
-        isAuth ?
+        isAuth?.id ?
             <Outlet/> :
             <Navigate to="/login"/>
     )

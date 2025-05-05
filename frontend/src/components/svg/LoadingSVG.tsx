@@ -1,13 +1,14 @@
 import { Image } from '@chakra-ui/react';
-import svgLoading from '../../../public/bouncing-circles.svg';
+import svgLoading from '@/assets/bouncing-circles.svg';
 
 interface LoadingSVGProps {
-  sx: React.CSSProperties;
+  sx?: React.CSSProperties;
+  h: string;
 }
 
-const LoadingSVG: React.FC<LoadingSVGProps> = ({ sx }) => {
+const LoadingSVG: React.FC<LoadingSVGProps> = ({ sx, h }) => {
     
-  return <Image src={svgLoading} alt="SVG" height={"50px"} fit={'contain'} style={sx}/>
+  return <Image src={svgLoading} alt="SVG" height={h} fit={'contain'} style={sx}/>
 }
 
 export default LoadingSVG;

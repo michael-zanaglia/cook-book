@@ -1,5 +1,5 @@
 require('dotenv').config();
-const connectDB = require("./utils/connectDB");
+const connectDB = require("./config/connectDB");
 const cookieParser = require("cookie-parser");
 const express = require("express");
 const app = express(); 
@@ -11,6 +11,7 @@ const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 app.use(cookieParser());
 app.use(cors({origin: CLIENT_URL, credentials: true}));
 app.use(express.json())
+app.use('/uploads', express.static('uploads'))
 app.use(web);
 
 app.listen(PORT, ()=> {

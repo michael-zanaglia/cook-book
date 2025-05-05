@@ -1,19 +1,13 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter as Router, Route, Routes } from 'react-router';
-import './index.css'
+//import { StrictMode } from 'react'
 import App from './App.tsx'
-import Provider from '@/components/ui/provider.tsx'
+import Provider from './components/ui/provider.tsx'
+
 
 createRoot(document.getElementById('root')!).render(
-  <Router>
-    
+  // <StrictMode>
     <Provider>
-      
-      <Routes>
-        <Route index path='/' element={<App/>} />
-      </Routes>
-
+      <App/>
     </Provider>
-
-  </Router>
+  //</StrictMode>
 )

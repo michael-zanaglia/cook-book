@@ -55,7 +55,7 @@ npm install
 ### Backend (port 3000)
 
 cd backend
-npm run dev
+npm run server, "server" faisant reference à "nodemon server.js"
 
 ### Frontend (port 5173 avec Vite)
 

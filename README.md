@@ -25,14 +25,14 @@ cp .env.example .env
 
 # Modifier le fichier .env avec les valeurs nécessaires :
 
-PORT=3000
+`PORT=3000
 MONGO_URL=mongodb://localhost:27017/cook-book
 SALT=mettre_un_salt_secure
 SECRET_KEY=mettre_une_cle_secrete
 NODE_ENV=development
 CLIENT_URL=http://localhost:5173
 PER_PAGE=
-ARTICLES_PER_PAGE=
+ARTICLES_PER_PAGE=`
 
 ---
 
